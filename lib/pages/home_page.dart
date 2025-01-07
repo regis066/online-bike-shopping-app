@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:online_bicycle_shopping/widgets/category_container.dart';
+import 'package:online_bicycle_shopping/widgets/custom_bottom_navigation_bar.dart';
 import 'package:online_bicycle_shopping/widgets/custom_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,15 +41,16 @@ class HomePage extends StatelessWidget {
             Positioned(
               top: 45,
               right: 0,
-              child: Image.asset(
-                  "assets/images/background1_5x.png"
-              ),
+              child: Image.asset("assets/images/background1_5x.png"),
             ),
             Column(
-              children: [CustomCard(),
-                CategoryContainer()
-              ],
-            )
+              children: [CustomCard(), CategoryContainer()],
+            ),
+            Positioned(
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: CustomBottomNavigationBar())
           ],
         ),
       ),
