@@ -40,8 +40,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
             child: ClipPath(
               clipper: BottomNavItemCardClipper(),
               child: Container(
-                width: 80,
-                height: 80,
+                width: 70,
+                height: 70,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,

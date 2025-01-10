@@ -7,8 +7,8 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+    return Container(
+      padding: EdgeInsets.only(top: 32),
       child: ClipPath(
         clipper: CustomCardClipPath(),
         child: BackdropFilter(
@@ -23,11 +23,11 @@ class CustomCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset("assets/images/bicycle01.png"),
-                Text("30% Off", style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white.withValues(alpha: 0.6),
-                    fontSize: 26
-                ))
+                Text("30% Off",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white.withValues(alpha: 0.6),
+                        fontSize: 26))
               ],
             ),
           ),
@@ -45,10 +45,13 @@ class CustomCardClipPath extends CustomClipper<Path> {
     Path path = Path();
 
     path.lineTo(0, h - 20);
-    path.quadraticBezierTo(0, h, 20, h); //2 point
+    path.quadraticBezierTo(0, h, 20, h);
     path.lineTo(w - 20, h - 35);
     path.quadraticBezierTo(w, h - 35, w, h - 55);
-    path.lineTo(w, 0); //5 point
+    path.lineTo(w, 20);
+    path.quadraticBezierTo(w, 0, w - 20, 0);
+    path.lineTo(20, 0);
+    path.quadraticBezierTo(0, 0, 0, 20);
     path.close();
     return path;
   }
